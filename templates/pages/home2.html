@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+{% load static %}
+
+
+
+
+
+{% block content %}
+
+
+<div class="page-content">
+    <section id="featured" class="content-section">
+        <div class="section-heading">
+            {% for banner in banners %}
+            <h1>{{banner.titulo}}<br><em>Nós</em></h1>
+            <p>
+            <br>Conheça nossa história.</p>
+            {% endfor %} 
+        </div>
+    </section>
+</div>
+
+
+
+{% endblock %}

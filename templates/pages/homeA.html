@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+{% load static %}
+
+
+
+
+
+{% block content %}
+
+
+{% for banner in banners %}
+<div class="slider">
+    <div class="Modern-Slider content-section" id="top">
+        <!-- Item -->
+        <div class="item">
+            <div class="img-fill">
+            <div class="image" style="background: url({{banner.image.url}});"></div>
+            <div class="info">
+                <div>
+                  <h1>{{banner.titulo}}</h1>
+                  <p>{{banner.descricao}}</p>
+                  <div class="white-button button">
+                      <a href="{% url 'products:list' %}">Discover More</a>
+                  </div>
+                </div>
+                </div>
+            </div>
+    </div>
+        
+{% endfor %}
+
+
+
+
+{% endblock %}

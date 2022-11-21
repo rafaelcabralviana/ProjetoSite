@@ -1,0 +1,62 @@
+{% extends 'base.html' %}
+{% load static %}
+
+
+
+
+
+{% block content %}
+
+<div class="page-content">
+<section id="featured" class="content-section">
+    <div class="section-heading">
+        <h1>Blog<br><em>Viver Vibes Saúde</em></h1>
+        
+        <br>Use o menu de categorias para filtrar as opções, ou simplesmente carregue todos :</p>        
+              <a class="text-decoration-none list-group-item list-group-item-light {% if not category %}active{% endif %}"
+                  href="{% url 'blog:home' %}">
+                  TODOS
+              </a>
+              {% for cat in categories %}
+              <a class="text-decoration-none list-group-item list-group-item-light {% if category == cat %}active{% endif %}"
+                  href="{{ cat.get_absolute_url }}" onclick="var t=this; setTimeout(function(){t.href='http://www.google.com'},10)">
+                                 
+                  {{ cat.nome }}
+                  
+              </a>
+              {% endfor %}
+        <br></p>
+    </div>
+    
+    <div class="section-content">
+        <div class="owl-carousel owl-theme">
+            {% for post in post_list %}
+            <div class="item">
+                <div class="image">
+                    <h4>{{post.categoria}}</h4>
+                    <img src="{{post.image.url}}" alt="">
+                    <div class="featured-button button">
+                        <a href="{{ post.get_absolute_url }}">ler...</a>
+                    </div>
+                </div>
+                
+                <div class="text-content">
+                    
+                    <a href="{{ post.get_absolute_url }}"><h4>{{post.titulo}}</h4></a>
+                    <a href="{{ post.get_absolute_url }}"><span>{{post.subtitulo}}</span></a>
+                    <p>{{post.criado_em}} por {{post.user}}</p>
+                    
+                </div>
+                
+               
+            </div>
+            {% endfor %}   
+
+            
+        </div>
+    
+    </div>
+</div>
+</section>
+
+{% endblock %}

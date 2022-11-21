@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+{% load static %}
+
+
+
+
+
+{% block content %}
+
+    <div class="page-content">
+    <section id="featured" class="content-section">
+        <div class="section-heading">
+            <h1>Blog<br><em>Viver Vibes Saúde</em></h1>
+            <p>Detalhes
+            <br></p>
+        </div>
+        <img src="{{post.image.url}}" alt="">
+        <H3>{{post.titulo}}</H3>
+        <p>&nbsp</p>
+        <H4>{{post.subtitulo}}</H4>
+        <p>&nbsp</p>
+        <h4>{{post.texto|safe}}</H4>>
+        <H5> Por, {{post.user}} em , {{post.criado_em}}</H5>
+   
+    
+
+
+
+</div>
+</section>
+
+{% endblock %}

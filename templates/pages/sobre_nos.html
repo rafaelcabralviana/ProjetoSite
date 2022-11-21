@@ -1,0 +1,56 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% load crispy_forms_tags %}
+
+{% block title %}Cadastro{% endblock %}
+
+{% block content %}
+<div class="page-content">
+  <section id="featured" class="content-section">
+      <div class="section-heading">
+          <h1>Sobre<br><em>Nós</em></h1>
+          <p>
+          <br>Conheça nossa história.</p>
+      </div>
+
+
+<div class="tm-section-wrap bg-light">
+  
+  <section id="about" class="row tm-section">
+    <div class="col-xl-6">
+      <div class="tm-section-half">   
+         
+          <div><i class="fas fa-6x fa-calculator mb-5 tm-section-icon"></i></div>                        
+          <h2 class="tm-section-title tm-color-primary mb-5">Sobre nós</h2>
+          <p class="mb-5">
+            Descrição sobre nós.
+          </p>
+          <p>
+            Outras descrições.
+          </p>
+      </div>
+    </div>
+    <div class="col-xl-6">
+      <div class="tm-section-half">
+          <div><i class="far fa-6x fa-building mb-5 tm-section-icon"></i></div>
+          <h2 class="tm-section-title tm-color-primary mb-5">Perfil da Empresa</h2>
+          <p class="mb-5">
+            Descrição sobre perfil da empresa.
+          </p>
+          <p>
+            Outras descrições.
+          </p>
+      </div>
+    </div>
+  </section>
+</div>
+
+<section class="footer">
+  <p>Copyright &copy; 2022 Viver Vibes Saúde -
+        
+    Clínica de Psicologia.</p>
+</section>
+</div>
+
+{% endblock %}

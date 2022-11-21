@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+{% load static %}
+
+
+
+
+
+{% block content %}
+{% for blogpost in blogposts %}
+<div class="page-content">
+    <section id="featured" class="content-section">
+        <div class="section-heading">
+            <h1>Featured<br><em>Places</em></h1>
+            <p>Praesent pellentesque efficitur magna, 
+            <br>sed pellentesque neque malesuada vitae.</p>
+        </div>
+      
+        <div class="section-content">
+            <div class="owl-carousel owl-theme">
+                
+                <div class="item">
+                    
+                    <div class="image">
+                        
+                        <img src="{blogpost.image.url}}" alt="">
+                        <div class="featured-button button">
+                            <a href="#projects">Continue Reading</a>
+                        </div>
+                    </div>
+                    <div class="text-content">
+                        <h4>{{blogpost.titulo}}</h4>
+                        <span>Proin et sapien</span>
+                        <p>#1 You are allowed to use Sentra Template for your business or client websites. You can use it for commercial or non-commercial or educational purposes.</p>
+                    </div>
+                  
+                </div>
+
+               
+                
+            </div>
+        </div>
+{% endfor %}
+{% endblock %}

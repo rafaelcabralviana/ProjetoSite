@@ -1,0 +1,103 @@
+{% extends 'base.html' %}
+
+
+
+
+{% load static %}
+{% load product_tags %}
+
+{% block title %}
+{% if category %}
+{{ category.name }}
+{% else %}
+Produtos
+{% endif %}
+{% endblock title %}
+
+{% block content %}
+<link rel="stylesheet" href="{% static 'css/stylecatalogo.css' %}">
+
+<div class="page-content">
+  <section id="featured" class="content-section">
+      <div class="section-heading">
+        <h1>Categorias de<br><em>Atendimentos</em></h1>
+        <br>Use o menu de categorias para filtrar as opções, ou simplesmente carregue todos :</p>        
+              <a class="text-decoration-none list-group-item list-group-item-light {% if not category %}active{% endif %}"
+                  href="{% url 'products:list' %}">
+                  TODOS
+              </a>
+
+              {% for cat in categories %}
+              <a class="text-decoration-none list-group-item list-group-item-light {% if category == cat %}active{% endif %}"
+                  href="{{ cat.get_absolute_url }}" onclick="var t=this; setTimeout(function(){t.href='http://www.google.com'},10)">
+                                 
+                  {{ cat.name }}
+                  
+              </a>
+              {% endfor %}
+          </ul>
+      </div> 
+  </section> 
+</div>  
+
+
+
+<div class="page-content" id="listacatalogo">
+    <section class="content-section">
+        <div class="section-heading">
+            <h1>Atendimentos<br><em>Psicologicos</em></h1>
+            
+            
+        </div>
+
+        
+        <div class="card-deck">
+          {% for product in product_list %}
+            <div class="card">
+              <a href="{{ product.get_absolute_url }}">
+                {% if product.image %}
+                <img class="card-img-top" src="/media/{{product.image}}" alt="">
+                
+                {% else %}
+                <img class="card-img-top" src="{% static 'images/no_image.jpg' %}" alt="">
+                {% endif %}
+            </a> 
+             
+              <div class="card-body">
+                <h5 class="card-title">{{ product.name }}</h5>
+                <p class="card-text"href="{{ product.get_absolute_url }}">{{ product.description }}</p>
+                <p class="card-text"><small class="text-muted">{{ product.modified }}</small></p>
+              </div>
+            </div>
+          {% if forloop.counter|divisibleby:"2" and not forloop.last %}
+        </div>
+
+  
+  <div class="card-deck mb-3">
+      {% endif %}
+      {% endfor %}
+
+      {% if product_list|length|remainder == 2 %}
+      <div class="card border-0"></div>
+      {% elif product_list|length|remainder == 1 %}
+      <div class="card border-0"></div>
+      <div class="card border-0"></div>
+      {% endif %}
+  </div>
+
+                        {% if is_paginated %}
+                        {% include "pagination.html" with page=page_obj %}
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+
+
+            <section class="footer">
+              <p>Copyright &copy; 2022 Viver Vibes Saúde -
+        
+                Clínica de Psicologia.</p>
+            </section>
+            </div>
+
+{% endblock content %}

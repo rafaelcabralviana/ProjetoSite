@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+{% load static %}
+
+
+
+
+
+{% block content %}
+
+<div class="page-content">
+<section id="featured" class="content-section">
+    <div class="section-heading">
+        <h1>Blog<br><em>Melius</em></h1>
+        <p>Destaques
+        <br></p>
+    </div>
+    
+    <div class="section-content">
+        <div class="owl-carousel owl-theme">
+            {% for blogpost in blogposts %}
+            <div class="item">
+                <div class="image">
+                    <img src="{{blogpost.image.url}}" alt="">
+                    <div class="featured-button button">
+                        <a href="#projects">Continue Reading</a>
+                    </div>
+                </div>
+                
+                <div class="text-content">
+                    
+                    <h4>{{blogpost.titulo}}</h4>
+                    <span>{{blogpost.subtitulo}}</span>
+                    <p>{{blogpost.criado_em}} por {{blogpost.user}}</p>
+                    
+                </div>
+                
+               
+            </div>
+            {% endfor %}   
+        </div>
+    
+    </div>
+</div>
+</section>
+
+{% endblock %}

@@ -1,0 +1,93 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load widget_tweaks %}
+
+{% load crispy_forms_tags %}
+
+
+{% block content %}
+
+</section>
+  <div class="page-content">
+    
+<section id="video" class="content-section">
+    <div class="row">
+    <div class="col-md-12">
+    <div class="section-heading">
+
+    <h1>Primeiro passo <em>Pré-agendamento</em> </h1>
+    <p>Em 2 passos simples você pré-agenda todas as suas consultas pelo nosso site.</p>
+    </div>
+<div class="text-content">
+
+<!DOCTYPE html>
+
+<html>
+    <head>
+    <script src="https://unpkg.com/htmx.org@1.6.1"></script>
+    </head>
+    <body>
+    <form method="POST">
+      <h3>Comece escolhendo a especialidade </h3>
+      {% csrf_token %}
+      <div>
+        
+        {% render_field form.consulta class="custom-select mb-4" hx-get="/areadeservicos/consulta/" hx-target="#id_profissional" %}
+      </div>
+      <div>
+
+        <h3>Escolha o Profissional </h3>
+        {% render_field form.profissional hx-get="/areadeservicos/profissional/" hx-target="#id_espec" %}
+
+          <h3>Escolha um tipo de consulta </h3>
+        {{ form.espec  }}
+
+    </div>
+    </form>
+    </body>
+</html>
+
+</div>
+</div>
+</div>
+</section>
+
+
+
+<section id="contact" class="content-section">
+  
+  <div id="contact-content">
+      <div class="section-heading">
+          <h1>Contato<br><em>VIVER VIBES SAÚDE</em></h1>
+          <p>
+          <br></p>
+          
+      </div>
+      <div class="section-content">
+          
+        <form action="" method="POST" class="tm-contact-form">
+          {% csrf_token %}
+          {{ dados.as_p }}
+          <button type="submit">Enviar</button>
+         </form> 
+
+         
+
+
+      </div>
+  </div>
+</section>
+
+
+
+    
+  </section>
+  <section class="footer">
+    <p>Copyright &copy; 2022 Viver Vibes Saúde -
+          
+      Clínica de Psicologia.</p>
+  </section>
+  </div>
+  
+  {% endblock %}
+  

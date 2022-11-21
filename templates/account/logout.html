@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+
+{% block title %}Sair{% endblock %}
+
+{% block content %}
+<div class="page-content">
+    <section id="featured" class="content-section">
+        <div class="section-heading">
+            <h1>Realizar<br><em>Logout</em></h1>
+            <p>Esperamos ve-lo novamente,
+            <br>até mais...</p>
+        </div>
+    <h2>Sair</h2>
+    <p>Você tem certeza que deseja sair?</p>
+    <form method="post" action="{% url 'account_logout' %}">
+        {% csrf_token %}
+        <button class="btn btn-danger" type="submit">Sair</button>
+    </form>
+
+
+
+
+    <section class="footer">
+        <p>Copyright &copy; 2022 Viver Vibes Saúde -
+        
+            Clínica de Psicologia.</p>
+      </section>
+      </div>
+{% endblock %}

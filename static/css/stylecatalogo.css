@@ -1,0 +1,16 @@
+body {
+    overflow-y: overlay !important;
+    overflow-x: hidden;
+    overflow-wrap: break-word;
+}
+
+.active {
+    background-color: #266fa0 !important;
+    border-color: #266fa0 !important;
+}
+
+.card-img-top {
+    width: 70%;
+    height: 5,2vw;
+    object-fit: cover;
+}

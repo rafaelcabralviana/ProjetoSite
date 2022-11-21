@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+
+{% load crispy_forms_tags %}
+
+{% block title %}Cadastro{% endblock %}
+
+{% block content %}
+<div class="page-content">
+    <section id="featured" class="content-section">
+        <div class="section-heading">
+            <h1>Realizar<br><em>Cadastro</em></h1>
+            <p>Faça cadastro 
+            <br>Será enviado um email para confirmação do cadastro</p>
+        </div>
+    <h2>Cadastro</h2>
+    <form method="post">
+        {% csrf_token %}
+        {{ form|crispy }}
+        <button class="btn btn-success" type="submit">Cadastrar</button>
+    </form>
+
+
+
+
+    <section class="footer">
+        <p>Copyright &copy; 2022 Viver Vibes Saúde -
+        
+            Clínica de Psicologia.</p>
+      </section>
+      </div>
+{% endblock %}
