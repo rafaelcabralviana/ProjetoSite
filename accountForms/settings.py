@@ -122,11 +122,14 @@ DATABASES = {
 
         'NAME': 'vivervibesaude',
 
-        'USER': 'postgres',
+        'USER': 'vivervibesaude',
 
-        'PASSWORD': 'Rcv@4824001',
-
-        'PORT': '5432',
+        'PASSWORD': 'AVNS_GYGbuzGPuYzb5CV0ZPl',
+        
+        'HOST': 'app-0e739497-e03e-4de5-a6db-30063dff12c7-do-user-13867867-0.b.db.ondigitalocean.com',
+        
+        
+        'PORT': '25060',
     }
 }
 
